@@ -90,8 +90,48 @@ if((int)stat1.st_size>(int)stat2.st_blocks)
 
 void datecmp(void)
 {
+	printf("date compare\n");
+	if(localtime(&(stat1.st_mtime))->tm_mon > localtime(&(stat2.st_mtime))->tm_mon)
+		printf("text2 is updated earlier\n");
+
+	else if(localtime(&(stat1.st_mtime))->tm_mon < localtime(&(stat2.st_mtime))->tm_mon)	
+		printf("text1 is updated earlier\n");
+
+	else{
+		if(localtime(&(stat1.st_mtime))->tm_mday > localtime(&(stat2.st_mtime))->tm_mday)
+			printf("text2 is updated earlier\n");
+
+		else if(localtime(&(stat1.st_mtime))->tm_mday < localtime(&(stat2.st_mtime))->tm_mday)
+			printf("text1 is updated earlier\n");
+
+		else
+			printf("same date\n");
+	}
+
+	printf("\n");
 }
 
 void timecmp(void)
 {
+
+	printf("time compare\n");
+	if(localtime(&(stat1.st_mtime))->tm_hour > localtime(&(stat2.st_mtime))->tm_hour)
+		printf("text2 is updated earlier\n");
+
+	else if(localtime(&(stat1.st_mtime))->tm_hour < localtime(&(stat2.st_mtime))->tm_hour)	
+		printf("text1 is updated earlier\n");
+
+	else{
+		if(localtime(&(stat1.st_mtime))->tm_min > localtime(&(stat2.st_mtime))->tm_min)
+			printf("text2 is updated earlier\n");
+
+		else if(localtime(&(stat1.st_mtime))->tm_min < localtime(&(stat2.st_mtime))->tm_min)
+			printf("text1 is updated earlier\n");
+
+		else
+			printf("same date\n");
+	}
+
+	printf("\n");
+
 }
