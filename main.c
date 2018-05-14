@@ -30,18 +30,22 @@ int main(void)
 
 void filestat1(void)
 {
+	stat("./text1", &stat1);
 }
 
 void filestat2(void)
 {
+	stat("./text2", &stat2);
 }
 
 void filetime1(void)
 {
+	time1 = localtime(&stat1.st_mtime);
 }
 
 void filetime2(void)
 {
+	time2 = localtime(&stat2.st_mtime);
 }
 
 void sizecmp(void)
