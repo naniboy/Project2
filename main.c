@@ -30,18 +30,30 @@ int main(void)
 
 void filestat1(void)
 {
+	stat("./text1", &stat1);
 }
 
 void filestat2(void)
 {
+	stat("./text2", &stat2);
 }
 
 void filetime1(void)
 {
+	time1 = localtime(&stat1.st_mtime);
+/*
+	printf("- text1 last modified time -\n");
+	printf("%d:%d\n", time1->tm_hour, time1->tm_min);
+*/
 }
 
 void filetime2(void)
 {
+	time2 = localtime(&stat2.st_mtime);
+/*
+	printf("- text2 last modified time -\n");
+	printf("%d:%d\n", time2->tm_hour, time2->tm_min);
+*/
 }
 
 void sizecmp(void)
